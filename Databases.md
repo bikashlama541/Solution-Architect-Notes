@@ -27,4 +27,21 @@ Redshift is the datawarehouse used in AWS.
 * Aurora Serverless is serverless.
 
 #### RDS-Back Ups , Multi A-Z and Read Replicas.
+ * Backups
+    * Automated Backups
+    * Database Snapshots
+   
+ * Read Replicas (Things to Remember)
+    * Can be Multi-AZ
+    * Used to increase performance
+    * Must have backup turned on
+    * Can be in different regions
+    * Can be MySQL, Postgre SQL, MariaDB, Oracle, Aurora
+    * Can be promoted to Master, but this will break the read replica
+    
+ * Multi A-Z
+    * Used for DR (Disaster Recovery)
+    * Can force a failover from one AZ to another by rebooting the RDS instance
+ 
+ * Encryption at rest is supported for MySQL, Oracle, SQL server, Postgre SQL, MariaDB and Aurora. Encryption is done using AWS Key Mangement Service (KMS). Once your RDS instance is encrypted, the data stored at rest in the underlying storage is encrypted, as are its automated backups, read replicas and snapshots.
 
