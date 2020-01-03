@@ -63,54 +63,55 @@ Redshit can be configured as follows:
    - Leader node ( manages client connections and receives queries)
    - Compute Node ( Store data and perform queries and computations). Up to 128 Compute nodes.
    
-   Backups
+   #### Backups
    - Enabled by default with a 1 day rentention period
    - Maximum retention period: 35 days
    - Redshift always attempts to maintain at least three copiers of data( original and replica on the compute nodes and a backup in S3)
    - Redshift can also asynchronously replicate snapshots to S3 in another region for disaster recovery.
    
- Redshift priced upon:
+ #### Redshift priced upon:
  - Compute Node Hours 
  - Backup 
  - Data transfer ( within a VPC)
  
- Security Considerations:
+ #### Security Considerations:
  - Encrypted in transist using SSL
  - Encrypted at rest using AES-256 encryption
  - By default Redshift takes care of key management
  
-Availability:
+#### Availability:
  - Only one 1 AZ
  - Can restore snapshots to new AZ in event of outage.
 
  
-Amazon Aurora:
+## Amazon Aurora:
 Things to know about Aurora
 - Start with 10 GB, Scales in 10 GB increments to 64TB (Storage Autoscaling)
 - Compute resouces can scale upto 32vCPUs and 244GB of Memory.
 - 2 copies of your data is contained in each AZ, with minimum of 3 AZ. 6 copies of your data.
 
-Scaling Aurora:
+#### Scaling Aurora:
 -designed to handle loss of two copies of data without affecting database write availability and up to three copies without affecting read availability.
 - Storage is also self-healing. Data blocks and disks are continuously scanned for errors and repaired automatically.
 
-Two types of Aurora Replicas
+#### Two types of Aurora Replicas
 - Aurora Replicas (15 of them)
 - MySQL Read Replicas ( currently 5)
 
-Tips:
+#### Tips:
 - Aurora snapchots can be shared with other AWS accounts.
 - Aurora has automated backups turned on by default, You can also take snapshots on aurora.
 
-Elasticache
+## Elasticache
 - webservice that makes it easy to deploy, operate and scale an in-memory cache inthe cloud
 The service improves the performence of web applications by allowing you to retrieve infomration
 from fast, managed, in-memory caches, instead of relying entirely on slower disk-based databases.
 
-ElasticCache supports two open-source in-memory caching engines:
+#### ElasticCache supports two open-source in-memory caching engines:
 - Memcached ( simple cache , can be scaled horizontally)
 - Redis ( advanced data types, multiple AZs, backup and stores)
 
+#### Notes: 
 - Use Elasticache to increase database and web application performance.
 - Redis is Multi-AZ
 - You can do backups and restores of Redis.
